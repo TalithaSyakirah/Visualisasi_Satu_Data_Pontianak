@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('data__nilai__p_d_r_b__atas__dasar__harga__berlaku__menurut__kategoris', function (Blueprint $table) {
+        Schema::create('data__nilai__p_d_r_b__dasar__harga__berlaku__menurut__kategoris', function (Blueprint $table) {
             $table->id();
             $table->integer('Tahun');
             $table->decimal('Pertanian_Kehutanan_dan_Perikanan', 15, 2);
@@ -41,6 +41,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('data__nilai__p_d_r_b__atas__dasar__harga__berlaku__menurut__kategoris');
+        Schema::dropIfExists('data__nilai__p_d_r_b__dasar__harga__berlaku__menurut__kategoris');
     }
 };

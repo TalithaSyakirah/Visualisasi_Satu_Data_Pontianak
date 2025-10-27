@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Data_Nilai_PDRB_Atas_Dasar_Harga_Berlaku_Menurut_Kategori extends Model
+class Data_Nilai_PDRB_Dasar_Harga_Berlaku_Menurut_Kategori extends Model
 {
     use HasFactory; 
     protected $fillable = [ 

@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('data__indeks__pembangunan__manusia__kota__pontianak__menurut__komponen__pembentuknyas', function (Blueprint $table) {
+        Schema::create('data__ipm__kota__pontianak__menurut__komponen__pembentuknyas', function (Blueprint $table) {
             $table->id();
             $table->integer('Tahun');
             $table->decimal('Angka_Harapan_Hidup_(Tahun)', 5, 2);
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('data__indeks__pembangunan__manusia__kota__pontianak__menurut__komponen__pembentuknyas');
+        Schema::dropIfExists('data__ipm__kota__pontianak__menurut__komponen__pembentuknyas');
     }
 };

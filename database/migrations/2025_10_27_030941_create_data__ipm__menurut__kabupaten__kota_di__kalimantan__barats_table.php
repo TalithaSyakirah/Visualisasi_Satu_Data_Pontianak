@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('data__indeks__pembangunan__manusia__menurut__kabupaten__kota_di__kalimantan__barats', function (Blueprint $table) {
+        Schema::create('data__ipm__menurut__kabupaten__kota_di__kalimantan__barats', function (Blueprint $table) {
             $table->id();
             $table->integer('Tahun');
             $table->decimal('Kabupaten_Sambas', 5, 2);
@@ -37,6 +37,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('data__indeks__pembangunan__manusia__menurut__kabupaten__kota_di__kalimantan__barats');
+        Schema::dropIfExists('data__ipm__menurut__kabupaten__kota_di__kalimantan__barats');
     }
 };

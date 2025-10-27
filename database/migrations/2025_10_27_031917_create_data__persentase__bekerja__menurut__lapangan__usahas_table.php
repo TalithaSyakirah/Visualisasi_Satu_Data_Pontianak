@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('data__persentase__penduduk__yang__bekerja__menurut__lapangan__usaha_di__kota__pontianaks', function (Blueprint $table) {
+        Schema::create('data__persentase__bekerja__menurut__lapangan__usahas', function (Blueprint $table) {
             $table->id();
             $table->integer('Tahun');
             $table->decimal('Pertanian_Perkebunan_Kehutanan_Perburuan_dan_Perikanan', 5, 2);
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('data__persentase__penduduk__yang__bekerja__menurut__lapangan__usaha_di__kota__pontianaks');
+        Schema::dropIfExists('data__persentase__bekerja__menurut__lapangan__usahas');
     }
 };
