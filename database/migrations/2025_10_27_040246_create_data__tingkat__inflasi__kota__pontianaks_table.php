@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('data__tingkat__inflasi__kota__pontianaks', function (Blueprint $table) {
             $table->id();
-             $table->integer('Tahun')->unique();
+            $table->integer('Tahun')->unique();
             $table->decimal('Jumlah', 5, 2);
             $table->timestamps();
         });

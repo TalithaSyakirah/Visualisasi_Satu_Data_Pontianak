@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Data_Indeks_Pembangunan_Manusia_Menurut_Kabupaten_Kota_di_Kalimantan_Barat extends Model
+class Data_IPM_Menurut_Kabupaten_Kota_di_Kalimantan_Barat extends Model
 {
     use HasFactory;
 
