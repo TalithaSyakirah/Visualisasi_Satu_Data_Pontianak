@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('Tahun');
             $table->decimal('Pertanian_Kehutanan_dan_Perikanan', 15, 2);
-            $table->decimal('pertambangan_dan_Penggalian', 15, 2);
+            $table->decimal('Pertambangan_dan_Penggalian', 15, 2);
             $table->decimal('Industri_Pengolahan', 15, 2);
             $table->decimal('Pengadaan_Listrik_dan_Gas', 15, 2);
             $table->decimal('Pengadaan_Air_Pengelolaan_Sampah_Limbah_dan_Daur_Ulang', 15, 2);

@@ -14,7 +14,7 @@ class Data_Persentase_Bekerja_Menurut_Lapangan_Usaha extends Model
         'Pertanian_Perkebunan_Kehutanan_Perburuan_dan_Perikanan',
         'Pertambangan_dan_Penggalian',
         'Industri',
-        'Listrik_Gas_dan_Air Minum',
+        'Listrik_Gas_dan_Air_Minum',
         'Konstruksi',
         'Perdagangan_Rumah_Makan_dan_Jasa_Akomodasi',
         'Transportasi_Pergudangan_dan_Komunikasi',

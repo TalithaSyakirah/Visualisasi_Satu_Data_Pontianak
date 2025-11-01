@@ -17,7 +17,7 @@ return new class extends Migration
             $table->decimal('Pertanian_Perkebunan_Kehutanan_Perburuan_dan_Perikanan', 5, 2);
             $table->decimal('Pertambangan_dan_Penggalian', 5, 2);
             $table->decimal('Industri', 5, 2);
-            $table->decimal('Listrik_Gas_dan_Air Minum', 5, 2);
+            $table->decimal('Listrik_Gas_dan_Air_Minum', 5, 2);
             $table->decimal('Konstruksi', 5, 2);
             $table->decimal('Perdagangan_Rumah_Makan_dan_Jasa_Akomodasi', 5, 2);
             $table->decimal('Transportasi_Pergudangan_dan_Komunikasi', 5, 2);

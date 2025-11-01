@@ -26,20 +26,20 @@ class DataKondisiKetenagakerjaanKotaPontianakController extends Controller
     }
 
     // Menghapus data.
-    public function destroy(Data_Kondisi_Ketenagakerjaan_Kota_Pontianak $Data_Kondisi_Ketenagakerjaan_Kota_Pontianak): RedirectResponse
+    public function destroy(Data_Kondisi_Ketenagakerjaan_Kota_Pontianak $data_kondisi_ketenagakerjaan): RedirectResponse
     {
-        $Data_Kondisi_Ketenagakerjaan_Kota_Pontianak->delete();
+        $data_kondisi_ketenagakerjaan->delete();
         return redirect()->route('dashboard.index')->with('success', 'Data berhasil dihapus.');
     }
 
     // Menampilkan form edit.
-    public function viewUpdate(Data_Kondisi_Ketenagakerjaan_Kota_Pontianak $Data_Kondisi_Ketenagakerjaan_Kota_Pontianak): View
+    public function viewUpdate(Data_Kondisi_Ketenagakerjaan_Kota_Pontianak $data_kondisi_ketenagakerjaan): View
     {
-        return view('update.viewUpdate_Data_Kondisi_Ketenagakerjaan_Kota_Pontianak', compact('Data_Kondisi_Ketenagakerjaan_Kota_Pontianak'));
+        return view('update.viewUpdate_Data_Kondisi_Ketenagakerjaan_Kota_Pontianak', compact('data_kondisi_ketenagakerjaan'));
     }
 
     // Memperbarui data yang sudah ada.
-    public function update(Request $request, Data_Kondisi_Ketenagakerjaan_Kota_Pontianak $Data_Kondisi_Ketenagakerjaan_Kota_Pontianak): RedirectResponse
+    public function update(Request $request, Data_Kondisi_Ketenagakerjaan_Kota_Pontianak $data_kondisi_ketenagakerjaan): RedirectResponse
     {
         $request->validate([
             'Tahun' => 'required|integer',
@@ -48,7 +48,7 @@ class DataKondisiKetenagakerjaanKotaPontianakController extends Controller
             'Jumlah' => 'required|integer',
         ]);
 
-        $Data_Kondisi_Ketenagakerjaan_Kota_Pontianak->update($request->all());
+        $data_kondisi_ketenagakerjaan->update($request->all());
 
         return redirect()->route('dashboard.index')->with('success', 'Data berhasil diperbarui.');
     }

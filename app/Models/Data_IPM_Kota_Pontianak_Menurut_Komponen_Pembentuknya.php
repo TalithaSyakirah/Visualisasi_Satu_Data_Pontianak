@@ -9,6 +9,9 @@ class Data_IPM_Kota_Pontianak_Menurut_Komponen_Pembentuknya extends Model
 {
     use HasFactory;
 
+    // Tambahkan baris ini!
+    protected $table = 'data__ipm__kota__pontianak__menurut__komponen__pembentuknyas'; 
+
     protected $fillable = [
         'Tahun',
         'Angka_Harapan_Hidup_(Tahun)',
@@ -17,5 +20,4 @@ class Data_IPM_Kota_Pontianak_Menurut_Komponen_Pembentuknya extends Model
         'Pengeluran_Per_Kapita_(Ribu_Rupiah)',
         'Indeks_Pembangunan_Manusia',
     ];
-
 }

@@ -28,20 +28,20 @@ class DataIpmKotaPontianakMenurutKomponenPembentuknyaController extends Controll
     }
 
     //Menghapus data.
-    public function destroy(Data_IPM_Kota_Pontianak_Menurut_Komponen_Pembentuknya $Data_IPM_Kota_Pontianak_Menurut_Komponen_Pembentuknya): RedirectResponse
+    public function destroy(Data_IPM_Kota_Pontianak_Menurut_Komponen_Pembentuknya $data_ipm_menurut_pembentuk): RedirectResponse
     {
-        $Data_IPM_Kota_Pontianak_Menurut_Komponen_Pembentuknya->delete();
+        $data_ipm_menurut_pembentuk->delete();
         return redirect()->route('dashboard.index')->with('success', 'Data berhasil dihapus.');
     }
 
     //Menampilkan form edit.
-    public function viewUpdate(Data_IPM_Kota_Pontianak_Menurut_Komponen_Pembentuknya $Data_IPM_Kota_Pontianak_Menurut_Komponen_Pembentuknya): View
+    public function viewUpdate(Data_IPM_Kota_Pontianak_Menurut_Komponen_Pembentuknya $data_ipm_menurut_pembentuk): View
     {
-        return view('update.viewUpdate_Data_IPM_Kota_Pontianak_Menurut_Komponen_Pembentuknya', compact('Data_IPM_Kota_Pontianak_Menurut_Komponen_Pembentuknya'));
+        return view('update.viewUpdate_Data_IPM_Kota_Pontianak_Menurut_Komponen_Pembentuknya', compact('data_ipm_menurut_pembentuk'));
     }
 
     //Memperbarui data yang sudah ada.
-    public function update(Request $request, Data_IPM_Kota_Pontianak_Menurut_Komponen_Pembentuknya $Data_IPM_Kota_Pontianak_Menurut_Komponen_Pembentuknya): RedirectResponse
+    public function update(Request $request, Data_IPM_Kota_Pontianak_Menurut_Komponen_Pembentuknya $data_ipm_menurut_pembentuk): RedirectResponse
     {
         $request->validate([
             'Tahun' => 'required|integer',
@@ -52,7 +52,7 @@ class DataIpmKotaPontianakMenurutKomponenPembentuknyaController extends Controll
             'Indeks_Pembangunan_Manusia' => 'required|numeric',
         ]);
 
-        $Data_IPM_Kota_Pontianak_Menurut_Komponen_Pembentuknya->update($request->all());
+        $data_ipm_menurut_pembentuk->update($request->all());
 
         return redirect()->route('dashboard.index')->with('success', 'Data berhasil diperbarui.');
     }

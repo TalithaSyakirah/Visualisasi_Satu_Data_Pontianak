@@ -28,21 +28,24 @@ Route::get('/data-luas-wilayah/{Data_Luas_Wilayah_Per_Kecamatan}/viewUpdate', [D
 Route::put('/data-luas-wilayah/{Data_Luas_Wilayah_Per_Kecamatan}', [DataLuasWilayahPerKecamatanController::class, 'update'])->name('data_luas_wilayah.update');
 
 
-// Data Jumlah Penduduk Kota Pontianak
-
+// Data Jumlah Penduduk
 use App\Http\Controllers\DataJumlahPendudukKotaPontianakController;
 
 // Tambah data
-Route::post('/data-jumlah-penduduk', [DataJumlahPendudukKotaPontianakController::class, 'store'])->name('data_jumlah_penduduk.store');
+Route::post('/data-jumlah-penduduk', [DataJumlahPendudukKotaPontianakController::class, 'store'])
+    ->name('data_jumlah_penduduk_kota_pontianak.store');
+
+// Edit data (view update)
+Route::get('/data-jumlah-penduduk/{jumlah_penduduk_Pontianak}/viewUpdate', [DataJumlahPendudukKotaPontianakController::class, 'viewUpdate'])
+    ->name('data_jumlah_penduduk_kota_pontianak.viewUpdate');
+
+// Update data
+Route::put('/data-jumlah-penduduk/{jumlah_penduduk_Pontianak}', [DataJumlahPendudukKotaPontianakController::class, 'update'])
+    ->name('data_jumlah_penduduk_kota_pontianak.update');
 
 // Hapus data
-Route::delete('/data-jumlah-penduduk/{Data_Jumlah_Penduduk_Kota_Pontianak}', [DataJumlahPendudukKotaPontianakController::class, 'destroy'])->name('data_jumlah_penduduk.destroy');
-
-// Form edit
-Route::get('/data-jumlah-penduduk/{Data_Jumlah_Penduduk_Kota_Pontianak}/viewUpdate', [DataJumlahPendudukKotaPontianakController::class, 'viewUpdate'])->name('data_jumlah_penduduk.viewUpdate');
-
-// Simpan update
-Route::put('/data-jumlah-penduduk/{Data_Jumlah_Penduduk_Kota_Pontianak}', [DataJumlahPendudukKotaPontianakController::class, 'update'])->name('data_jumlah_penduduk.update');
+Route::delete('/data-jumlah-penduduk/{jumlah_penduduk_Pontianak}', [DataJumlahPendudukKotaPontianakController::class, 'destroy'])
+    ->name('data_jumlah_penduduk_kota_pontianak.destroy');
 
 
 //Data Jumlah Persentase Penduduk Miskin di Kota Pontianak
@@ -50,34 +53,16 @@ Route::put('/data-jumlah-penduduk/{Data_Jumlah_Penduduk_Kota_Pontianak}', [DataJ
 use App\Http\Controllers\DataJumlahPersentasePendudukMiskindiKotaPontianakController;
 
 // tambah data
-Route::post('/datajumlahpersentasemiskin', [DataJumlahPersentasePendudukMiskindiKotaPontianakController::class, 'store'])->name('datajumlahpersentasemiskin.store');
+Route::post('/datajumlahpersentasemiskin', [DataJumlahPersentasePendudukMiskindiKotaPontianakController::class, 'store'])->name('data_jumlah_persentase_miskin.store');
 
 // hapus data
-Route::delete('/datajumlahpersentasemiskin/{datajumlahpersentasemiskin}', [DataJumlahPersentasePendudukMiskindiKotaPontianakController::class, 'destroy'])->name('datajumlahpersentasemiskin.destroy');
+Route::delete('/datajumlahpersentasemiskin/{data_jumlah_persentase_miskin}', [DataJumlahPersentasePendudukMiskindiKotaPontianakController::class, 'destroy'])->name('data_jumlah_persentase_miskin.destroy');
 
 // form update
-Route::get('/datajumlahpersentasemiskin/{datajumlahpersentasemiskin}/viewUpdate', [DataJumlahPersentasePendudukMiskindiKotaPontianakController::class, 'viewUpdate'])->name('datajumlahpersentasemiskin.viewUpdate');
+Route::get('/datajumlahpersentasemiskin/{data_jumlah_persentase_miskin}/viewUpdate', [DataJumlahPersentasePendudukMiskindiKotaPontianakController::class, 'viewUpdate'])->name('data_jumlah_persentase_miskin.viewUpdate');
 
 // simpan update
-Route::put('/datajumlahpersentasemiskin/{datajumlahpersentasemiskin}', [DataJumlahPersentasePendudukMiskindiKotaPontianakController::class, 'update'])->name('datajumlahpersentasemiskin.update');
-
-
-//Data IPM Menurut Kabupaten/Kota di Kalimantan Barat
-
-use App\Http\Controllers\DataIpmMenurutKabupatenKotaDiKalimantanBaratController;
-
-// tambah data
-Route::post('/dataipmmenurutkabupaten', [DataIpmMenurutKabupatenKotaDiKalimantanBaratController::class, 'store'])->name('dataipmmenurutkabupaten.store');
-
-// hapus data
-Route::delete('/dataipmmenurutkabupaten/{dataipmmenurutkabupaten}', [DataIpmMenurutKabupatenKotaDiKalimantanBaratController::class, 'destroy'])->name('dataipmmenurutkabupaten.destroy');
-
-// form update
-Route::get('/dataipmmenurutkabupaten/{dataipmmenurutkabupaten}/viewUpdate', [DataIpmMenurutKabupatenKotaDiKalimantanBaratController::class, 'viewUpdate'])->name('dataipmmenurutkabupaten.viewUpdate');
-
-// simpan update
-Route::put('/dataipmmenurutkabupaten/{dataipmmenurutkabupaten}', [DataIpmMenurutKabupatenKotaDiKalimantanBaratController::class, 'update'])->name('dataipmmenurutkabupaten.update');
-
+Route::put('/datajumlahpersentasemiskin/{data_jumlah_persentase_miskin}', [DataJumlahPersentasePendudukMiskindiKotaPontianakController::class, 'update'])->name('data_jumlah_persentase_miskin.update');
 
 //Data IPM Kota Pontianak Menurut Komponen Pembentuknya
 
@@ -86,16 +71,32 @@ use App\Http\Controllers\DataIpmKotaPontianakMenurutKomponenPembentuknyaControll
 
 
 // tambah data
-Route::post('/dataipmkotapontianak', [DataIpmKotaPontianakMenurutKomponenPembentuknyaController::class, 'store'])->name('dataipmkotapontianak.store');
+Route::post('/dataipmkotapontianak', [DataIpmKotaPontianakMenurutKomponenPembentuknyaController::class, 'store'])->name('data_ipm_kota_pontianak_menurut_komponen_pembentuknya.store');
 
 // hapus data
-Route::delete('/dataipmkotapontianak/{dataipmkotapontianak}', [DataIpmKotaPontianakMenurutKomponenPembentuknyaController::class, 'destroy'])->name('dataipmkotapontianak.destroy');
+Route::delete('/dataipmkotapontianak/{data_ipm_menurut_pembentuk}', [DataIpmKotaPontianakMenurutKomponenPembentuknyaController::class, 'destroy'])->name('data_ipm_kota_pontianak_menurut_komponen_pembentuknya.destroy');
 
 // form update
-Route::get('/dataipmkotapontianak/{dataipmkotapontianak}/viewUpdate', [DataIpmKotaPontianakMenurutKomponenPembentuknyaController::class, 'viewUpdate'])->name('dataipmkotapontianak.viewUpdate');
+Route::get('/dataipmkotapontianak/{data_ipm_menurut_pembentuk}/viewUpdate', [DataIpmKotaPontianakMenurutKomponenPembentuknyaController::class, 'viewUpdate'])->name('data_ipm_kota_pontianak_menurut_komponen_pembentuknya.viewUpdate');
 
 // simpan update
-Route::put('/dataipmkotapontianak/{dataipmkotapontianak}', [DataIpmKotaPontianakMenurutKomponenPembentuknyaController::class, 'update'])->name('dataipmkotapontianak.update');
+Route::put('/dataipmkotapontianak/{data_ipm_menurut_pembentuk}', [DataIpmKotaPontianakMenurutKomponenPembentuknyaController::class, 'update'])->name('data_ipm_kota_pontianak_menurut_komponen_pembentuknya.update');
+
+//Data IPM Menurut Kabupaten/Kota di Kalimantan Barat
+
+use App\Http\Controllers\DataIpmMenurutKabupatenKotaDiKalimantanBaratController;
+
+// tambah data
+Route::post('/dataipmmenurutkabupaten', [DataIpmMenurutKabupatenKotaDiKalimantanBaratController::class, 'store'])->name('data_ipm_menurut_kabupaten_kota.store');
+
+// hapus data
+Route::delete('/dataipmmenurutkabupaten/{data_ipm_menurut_kabupaten_kota}', [DataIpmMenurutKabupatenKotaDiKalimantanBaratController::class, 'destroy'])->name('data_ipm_menurut_kabupaten_kota.destroy');
+
+// form update
+Route::get('/dataipmmenurutkabupaten/{data_ipm_menurut_kabupaten_kota}/viewUpdate', [DataIpmMenurutKabupatenKotaDiKalimantanBaratController::class, 'viewUpdate'])->name('data_ipm_menurut_kabupaten_kota.viewUpdate');
+
+// simpan update
+Route::put('/dataipmmenurutkabupaten/{data_ipm_menurut_kabupaten_kota}', [DataIpmMenurutKabupatenKotaDiKalimantanBaratController::class, 'update'])->name('data_ipm_menurut_kabupaten_kota.update');
 
 
 // Data Kondisi Ketenagakerjaan Kota Pontianak
@@ -103,33 +104,16 @@ Route::put('/dataipmkotapontianak/{dataipmkotapontianak}', [DataIpmKotaPontianak
 use App\Http\Controllers\DataKondisiKetenagakerjaanKotaPontianakController;
 
 // tambah data
-Route::post('/datakondisiketenagakerjaan', [DataKondisiKetenagakerjaanKotaPontianakController::class, 'store'])->name('datakondisiketenagakerjaan.store');
+Route::post('/datakondisiketenagakerjaan', [DataKondisiKetenagakerjaanKotaPontianakController::class, 'store'])->name('data_kondisi_ketenagakerjaan_kota_pontianak.store');
 
 // hapus data
-Route::delete('/datakondisiketenagakerjaan/{datakondisiketenagakerjaan}', [DataKondisiKetenagakerjaanKotaPontianakController::class, 'destroy'])->name('datakondisiketenagakerjaan.destroy');
+Route::delete('/datakondisiketenagakerjaan/{data_kondisi_ketenagakerjaan}', [DataKondisiKetenagakerjaanKotaPontianakController::class, 'destroy'])->name('data_kondisi_ketenagakerjaan_kota_pontianak.destroy');
 
 // form update
-Route::get('/datakondisiketenagakerjaan/{datakondisiketenagakerjaan}/viewUpdate', [DataKondisiKetenagakerjaanKotaPontianakController::class, 'viewUpdate'])->name('datakondisiketenagakerjaan.viewUpdate');
+Route::get('/datakondisiketenagakerjaan/{data_kondisi_ketenagakerjaan}/viewUpdate', [DataKondisiKetenagakerjaanKotaPontianakController::class, 'viewUpdate'])->name('data_kondisi_ketenagakerjaan_kota_pontianak.viewUpdate');
 
 // simpan update
-Route::put('/datakondisiketenagakerjaan/{datakondisiketenagakerjaan}', [DataKondisiKetenagakerjaanKotaPontianakController::class, 'update'])->name('datakondisiketenagakerjaan.update');
-
-
-// Data Persentase Bekerja Menurut Lapangan Usaha
-
-use App\Http\Controllers\DataPersentaseBekerjaMenurutLapanganUsahaController;
-
-// tambah data
-Route::post('/datapersentasebekerjalapanganusaha', [DataPersentaseBekerjaMenurutLapanganUsahaController::class, 'store'])->name('datapersentasebekerjalapanganusaha.store');
-
-// hapus data
-Route::delete('/datapersentasebekerjalapanganusaha/{datapersentasebekerjalapanganusaha}', [DataPersentaseBekerjaMenurutLapanganUsahaController::class, 'destroy'])->name('datapersentasebekerjalapanganusaha.destroy');
-
-// form update
-Route::get('/datapersentasebekerjalapanganusaha/{datapersentasebekerjalapanganusaha}/viewUpdate', [DataPersentaseBekerjaMenurutLapanganUsahaController::class, 'viewUpdate'])->name('datapersentasebekerjalapanganusaha.viewUpdate');
-
-// simpan update
-Route::put('/datapersentasebekerjalapanganusaha/{datapersentasebekerjalapanganusaha}', [DataPersentaseBekerjaMenurutLapanganUsahaController::class, 'update'])->name('datapersentasebekerjalapanganusaha.update');
+Route::put('/datakondisiketenagakerjaan/{data_kondisi_ketenagakerjaan}', [DataKondisiKetenagakerjaanKotaPontianakController::class, 'update'])->name('data_kondisi_ketenagakerjaan_kota_pontianak.update');
 
 
 // Data Tingkat Pengangguran Terbuka
@@ -137,16 +121,33 @@ Route::put('/datapersentasebekerjalapanganusaha/{datapersentasebekerjalapanganus
 use App\Http\Controllers\DataTingkatPengangguranTerbukaController;
 
 // tambah data
-Route::post('/datatingkatpengangguranterbuka', [DataTingkatPengangguranTerbukaController::class, 'store'])->name('datatingkatpengangguranterbuka.store');
+Route::post('/datatingkatpengangguranterbuka', [DataTingkatPengangguranTerbukaController::class, 'store'])->name('data_tingkat_pengangguran_terbuka.store');
 
 // hapus data
-Route::delete('/datatingkatpengangguranterbuka/{datatingkatpengangguranterbuka}', [DataTingkatPengangguranTerbukaController::class, 'destroy'])->name('datatingkatpengangguranterbuka.destroy');
+Route::delete('/datatingkatpengangguranterbuka/{data_tingkat_pengangguran}', [DataTingkatPengangguranTerbukaController::class, 'destroy'])->name('data_tingkat_pengangguran_terbuka.destroy');
 
 // form update
-Route::get('/datatingkatpengangguranterbuka/{datatingkatpengangguranterbuka}/viewUpdate', [DataTingkatPengangguranTerbukaController::class, 'viewUpdate'])->name('datatingkatpengangguranterbuka.viewUpdate');
+Route::get('/datatingkatpengangguranterbuka/{data_tingkat_pengangguran}/viewUpdate', [DataTingkatPengangguranTerbukaController::class, 'viewUpdate'])->name('data_tingkat_pengangguran_terbuka.viewUpdate');
 
 // simpan update
-Route::put('/datatingkatpengangguranterbuka/{datatingkatpengangguranterbuka}', [DataTingkatPengangguranTerbukaController::class, 'update'])->name('datatingkatpengangguranterbuka.update');
+Route::put('/datatingkatpengangguranterbuka/{data_tingkat_pengangguran}', [DataTingkatPengangguranTerbukaController::class, 'update'])->name('data_tingkat_pengangguran_terbuka.update');
+
+// Data Persentase Bekerja Menurut Lapangan Usaha
+
+use App\Http\Controllers\DataPersentaseBekerjaMenurutLapanganUsahaController;
+
+// tambah data
+Route::post('/datapersentasebekerjalapanganusaha', [DataPersentaseBekerjaMenurutLapanganUsahaController::class, 'store'])->name('data_persentase_bekerja_menurut_lapangan_usaha.store');
+
+// hapus data
+Route::delete('/datapersentasebekerjalapanganusaha/{data_bekerja_lapangan_usaha}', [DataPersentaseBekerjaMenurutLapanganUsahaController::class, 'destroy'])->name('data_persentase_bekerja_menurut_lapangan_usaha.destroy');
+
+// form update
+Route::get('/datapersentasebekerjalapanganusaha/{data_bekerja_lapangan_usaha}/viewUpdate', [DataPersentaseBekerjaMenurutLapanganUsahaController::class, 'viewUpdate'])->name('data_persentase_bekerja_menurut_lapangan_usaha.viewUpdate');
+
+// simpan update
+Route::put('/datapersentasebekerjalapanganusaha/{data_bekerja_lapangan_usaha}', [DataPersentaseBekerjaMenurutLapanganUsahaController::class, 'update'])->name('data_persentase_bekerja_menurut_lapangan_usaha.update');
+
 
 
 // Data Nilai PDRB Dasar Harga Berlaku Menurut Kategori
@@ -154,16 +155,16 @@ Route::put('/datatingkatpengangguranterbuka/{datatingkatpengangguranterbuka}', [
 use App\Http\Controllers\DataNilaiPDRBDasarHargaBerlakuMenurutKategoriController;
 
 // tambah data
-Route::post('/datanilaipdrbdasarhargaberlakumenurutkategori', [DataNilaiPDRBDasarHargaBerlakuMenurutKategoriController::class, 'store'])->name('datanilaipdrbdasarhargaberlakumenurutkategori.store');
+Route::post('/datanilaipdrbdasarhargaberlakumenurutkategori', [DataNilaiPDRBDasarHargaBerlakuMenurutKategoriController::class, 'store'])->name('data_nilai_pdrb_dasar_harga_berlaku_menurut_kategori.store');
 
 // hapus data
-Route::delete('/datanilaipdrbdasarhargaberlakumenurutkategori/{datanilaipdrbdasarhargaberlakumenurutkategori}', [DataNilaiPDRBDasarHargaBerlakuMenurutKategoriController::class, 'destroy'])->name('datanilaipdrbdasarhargaberlakumenurutkategori.destroy');
+Route::delete('/datanilaipdrbdasarhargaberlakumenurutkategori/{data_pdrb_dasar_harga_berlaku}', [DataNilaiPDRBDasarHargaBerlakuMenurutKategoriController::class, 'destroy'])->name('data_nilai_pdrb_dasar_harga_berlaku_menurut_kategori.destroy');
 
 // form update
-Route::get('/datanilaipdrbdasarhargaberlakumenurutkategori/{datanilaipdrbdasarhargaberlakumenurutkategori}/viewUpdate', [DataNilaiPDRBDasarHargaBerlakuMenurutKategoriController::class, 'viewUpdate'])->name('datanilaipdrbdasarhargaberlakumenurutkategori.viewUpdate');
+Route::get('/datanilaipdrbdasarhargaberlakumenurutkategori/{data_pdrb_dasar_harga_berlaku}/viewUpdate', [DataNilaiPDRBDasarHargaBerlakuMenurutKategoriController::class, 'viewUpdate'])->name('data_nilai_pdrb_dasar_harga_berlaku_menurut_kategori.viewUpdate');
 
 // simpan update
-Route::put('/datanilaipdrbdasarhargaberlakumenurutkategori/{datanilaipdrbdasarhargaberlakumenurutkategori}', [DataNilaiPDRBDasarHargaBerlakuMenurutKategoriController::class, 'update'])->name('datanilaipdrbdasarhargaberlakumenurutkategori.update');
+Route::put('/datanilaipdrbdasarhargaberlakumenurutkategori/{data_pdrb_dasar_harga_berlaku}', [DataNilaiPDRBDasarHargaBerlakuMenurutKategoriController::class, 'update'])->name('data_nilai_pdrb_dasar_harga_berlaku_menurut_kategori.update');
 
 
 // Data Pertumbuhan Nilai Tambah Kategori Kota Pontianak
@@ -171,16 +172,16 @@ Route::put('/datanilaipdrbdasarhargaberlakumenurutkategori/{datanilaipdrbdasarha
 use App\Http\Controllers\DataPertumbuhanNilaiTambahKategoriKotaPontianakController;
 
 // tambah data
-Route::post('/datapertumbuhannilaitambahkategorikotapontianak', [DataPertumbuhanNilaiTambahKategoriKotaPontianakController::class, 'store'])->name('datapertumbuhannilaitambahkategorikotapontianak.store');
+Route::post('/datapertumbuhannilaitambahkategorikotapontianak', [DataPertumbuhanNilaiTambahKategoriKotaPontianakController::class, 'store'])->name('data_pertumbuhan_nilai_tambah_kategori_kota_pontianak.store');
 
 // hapus data
-Route::delete('/datapertumbuhannilaitambahkategorikotapontianak/{datapertumbuhannilaitambahkategorikotapontianak}', [DataPertumbuhanNilaiTambahKategoriKotaPontianakController::class, 'destroy'])->name('datapertumbuhannilaitambahkategorikotapontianak.destroy');
+Route::delete('/datapertumbuhannilaitambahkategorikotapontianak/{data_nilai_tambah_kategori}', [DataPertumbuhanNilaiTambahKategoriKotaPontianakController::class, 'destroy'])->name('data_pertumbuhan_nilai_tambah_kategori_kota_pontianak.destroy');
 
 // form update
-Route::get('/datapertumbuhannilaitambahkategorikotapontianak/{datapertumbuhannilaitambahkategorikotapontianak}/viewUpdate', [DataPertumbuhanNilaiTambahKategoriKotaPontianakController::class, 'viewUpdate'])->name('datapertumbuhannilaitambahkategorikotapontianak.viewUpdate');
+Route::get('/datapertumbuhannilaitambahkategorikotapontianak/{data_nilai_tambah_kategori}/viewUpdate', [DataPertumbuhanNilaiTambahKategoriKotaPontianakController::class, 'viewUpdate'])->name('data_pertumbuhan_nilai_tambah_kategori_kota_pontianak.viewUpdate');
 
 // simpan update
-Route::put('/datapertumbuhannilaitambahkategorikotapontianak/{datapertumbuhannilaitambahkategorikotapontianak}', [DataPertumbuhanNilaiTambahKategoriKotaPontianakController::class, 'update'])->name('datapertumbuhannilaitambahkategorikotapontianak.update');
+Route::put('/datapertumbuhannilaitambahkategorikotapontianak/{data_nilai_tambah_kategori}', [DataPertumbuhanNilaiTambahKategoriKotaPontianakController::class, 'update'])->name('data_pertumbuhan_nilai_tambah_kategori_kota_pontianak.update');
 
 
 // Data Kontribusi Kategori Terhadap PDRB Kota Pontianak
@@ -188,30 +189,29 @@ Route::put('/datapertumbuhannilaitambahkategorikotapontianak/{datapertumbuhannil
 use App\Http\Controllers\DataKontribusiKategoriTerhadapPDRBKotaPontianakController;
 
 // tambah data
-Route::post('/datakontribusikategoriterhadappdrbkotapontianak', [DataKontribusiKategoriTerhadapPDRBKotaPontianakController::class, 'store'])->name('datakontribusikategoriterhadappdrbkotapontianak.store');
+Route::post('/datakontribusikategoriterhadappdrbkotapontianak', [DataKontribusiKategoriTerhadapPDRBKotaPontianakController::class, 'store'])->name('data_kontribusi_kategori_terhadap_pdrb_kota_pontianak.store');
 
 // hapus data
-Route::delete('/datakontribusikategoriterhadappdrbkotapontianak/{datakontribusikategoriterhadappdrbkotapontianak}', [DataKontribusiKategoriTerhadapPDRBKotaPontianakController::class, 'destroy'])->name('datakontribusikategoriterhadappdrbkotapontianak.destroy');
+Route::delete('/datakontribusikategoriterhadappdrbkotapontianak/{data_kontribusi_kategori}', [DataKontribusiKategoriTerhadapPDRBKotaPontianakController::class, 'destroy'])->name('data_kontribusi_kategori_terhadap_pdrb_kota_pontianak.destroy');
 
 // form update
-Route::get('/datakontribusikategoriterhadappdrbkotapontianak/{datakontribusikategoriterhadappdrbkotapontianak}/viewUpdate', [DataKontribusiKategoriTerhadapPDRBKotaPontianakController::class, 'viewUpdate'])->name('datakontribusikategoriterhadappdrbkotapontianak.viewUpdate');
+Route::get('/datakontribusikategoriterhadappdrbkotapontianak/{data_kontribusi_kategori}/viewUpdate', [DataKontribusiKategoriTerhadapPDRBKotaPontianakController::class, 'viewUpdate'])->name('data_kontribusi_kategori_terhadap_pdrb_kota_pontianak.viewUpdate');
 
 // simpan update
-Route::put('/datakontribusikategoriterhadappdrbkotapontianak/{datakontribusikategoriterhadappdrbkotapontianak}', [DataKontribusiKategoriTerhadapPDRBKotaPontianakController::class, 'update'])->name('datakontribusikategoriterhadappdrbkotapontianak.update');
-
+Route::put('/datakontribusikategoriterhadappdrbkotapontianak/{data_kontribusi_kategori}', [DataKontribusiKategoriTerhadapPDRBKotaPontianakController::class, 'update'])->name('data_kontribusi_kategori_terhadap_pdrb_kota_pontianak.update');
 
 // Data Tingkat Inflasi Kota Pontianak
 
 use App\Http\Controllers\DataTingkatInflasiKotaPontianakController;
 
 // tambah data
-Route::post('/datatingkatinflasikotapontianak', [DataTingkatInflasiKotaPontianakController::class, 'store'])->name('datatingkatinflasikotapontianak.store');
+Route::post('/datatingkatinflasikotapontianak', [DataTingkatInflasiKotaPontianakController::class, 'store'])->name('data_tingkat_inflasi_kota_pontianak.store');
 
 // hapus data
-Route::delete('/datatingkatinflasikotapontianak/{datatingkatinflasikotapontianak}', [DataTingkatInflasiKotaPontianakController::class, 'destroy'])->name('datatingkatinflasikotapontianak.destroy');
+Route::delete('/datatingkatinflasikotapontianak/{data_tingkat_inflasi}', [DataTingkatInflasiKotaPontianakController::class, 'destroy'])->name('data_tingkat_inflasi_kota_pontianak.destroy');
 
 // form update
-Route::get('/datatingkatinflasikotapontianak/{datatingkatinflasikotapontianak}/viewUpdate', [DataTingkatInflasiKotaPontianakController::class, 'viewUpdate'])->name('datatingkatinflasikotapontianak.viewUpdate');
+Route::get('/datatingkatinflasikotapontianak/{data_tingkat_inflasi}/viewUpdate', [DataTingkatInflasiKotaPontianakController::class, 'viewUpdate'])->name('data_tingkat_inflasi_kota_pontianak.viewUpdate');
 
 // simpan update
-Route::put('/datatingkatinflasikotapontianak/{datatingkatinflasikotapontianak}', [DataTingkatInflasiKotaPontianakController::class, 'update'])->name('datatingkatinflasikotapontianak.update');
+Route::put('/datatingkatinflasikotapontianak/{data_tingkat_inflasi}', [DataTingkatInflasiKotaPontianakController::class, 'update'])->name('data_tingkat_inflasi_kota_pontianak.update');

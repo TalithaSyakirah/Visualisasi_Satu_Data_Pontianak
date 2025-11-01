@@ -27,27 +27,27 @@ class DataTingkatInflasiKotaPontianakController extends Controller
     }
 
     // Menghapus data.
-    public function destroy(Data_Tingkat_Inflasi_Kota_Pontianak $Data_Tingkat_Inflasi_Kota_Pontianak): RedirectResponse
+    public function destroy(Data_Tingkat_Inflasi_Kota_Pontianak $data_tingkat_inflasi): RedirectResponse
     {
-        $Data_Tingkat_Inflasi_Kota_Pontianak->delete();
+        $data_tingkat_inflasi->delete();
         return redirect()->route('dashboard.index')->with('success', 'Data berhasil dihapus.');
     }
 
     // Menampilkan form edit.
-    public function viewUpdate(Data_Tingkat_Inflasi_Kota_Pontianak $Data_Tingkat_Inflasi_Kota_Pontianak): View
+    public function viewUpdate(Data_Tingkat_Inflasi_Kota_Pontianak $data_tingkat_inflasi): View
     {
-        return view('update.viewUpdate_Data_Tingkat_Inflasi_Kota_Pontianak', compact('Data_Tingkat_Inflasi_Kota_Pontianak'));
+        return view('update.viewUpdate_Data_Tingkat_Inflasi_Kota_Pontianak', compact('data_tingkat_inflasi'));
     }
 
     // Memperbarui data yang sudah ada.
-    public function update(Request $request, Data_Tingkat_Inflasi_Kota_Pontianak $Data_Tingkat_Inflasi_Kota_Pontianak): RedirectResponse
+    public function update(Request $request, Data_Tingkat_Inflasi_Kota_Pontianak $data_tingkat_inflasi): RedirectResponse
     {
         $request->validate([
-            'Tahun' => 'required|integer|unique:data__tingkat__inflasi__kota__pontianaks,Tahun,' . $Data_Tingkat_Inflasi_Kota_Pontianak->id,
+            'Tahun' => 'required|integer|unique:data__tingkat__inflasi__kota__pontianaks,Tahun,' . $data_tingkat_inflasi->id,
             'Jumlah' => 'required|numeric',
         ]);
 
-        $Data_Tingkat_Inflasi_Kota_Pontianak->update([
+        $data_tingkat_inflasi->update([
             'Tahun' => $request->input('Tahun'),
             'Jumlah' => $request->input('Jumlah'),
         ]);

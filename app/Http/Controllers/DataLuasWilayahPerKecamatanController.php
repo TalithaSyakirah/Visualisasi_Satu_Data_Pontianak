@@ -43,15 +43,16 @@ class DataLuasWilayahPerKecamatanController extends Controller
     public function update(Request $request, Data_Luas_Wilayah_Per_Kecamatan $Data_Luas_Wilayah_Per_Kecamatan): RedirectResponse
     {
         $request->validate([
-            'Kecamatan' => 'required|max:100',
-            'Luas_(Km^2)' => 'required|integer',
+            'kecamatan' => 'required|max:100',
+            'luas_(km2)' => 'required|numeric',
         ]);
 
         $Data_Luas_Wilayah_Per_Kecamatan->update([
-            'Kecamatan' => $request->input('Kecamatan'),
-            'Luas_(Km^2)' => $request->input('Luas_(Km^2)'),
+            'Kecamatan' => $request->input('kecamatan'),
+            'Luas_(Km^2)' => $request->input('luas_(km2)'),
         ]);
 
         return redirect()->route('dashboard.index')->with('success', 'Data berhasil diperbarui.');
     }
+
 }

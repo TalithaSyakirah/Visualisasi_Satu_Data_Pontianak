@@ -18,7 +18,7 @@ class DataPersentaseBekerjaMenurutLapanganUsahaController extends Controller
             'Pertanian_Perkebunan_Kehutanan_Perburuan_dan_Perikanan' => 'required|numeric',
             'Pertambangan_dan_Penggalian' => 'required|numeric',
             'Industri' => 'required|numeric',
-            'Listrik_Gas_dan_Air_Minim' => 'required|numeric',
+            'Listrik_Gas_dan_Air_Minum' => 'required|numeric',
             'Konstruksi' => 'required|numeric',
             'Perdagangan_Rumah_Makan_dan_Jasa_Akomodasi' => 'required|numeric',
             'Transportasi_Pergudangan_dan_Komunikasi' => 'required|numeric',
@@ -33,27 +33,27 @@ class DataPersentaseBekerjaMenurutLapanganUsahaController extends Controller
     }
 
     // Menghapus data.
-    public function destroy(Data_Persentase_Bekerja_Menurut_Lapangan_Usaha $Data_Persentase_Bekerja_Menurut_Lapangan_Usaha): RedirectResponse
+    public function destroy(Data_Persentase_Bekerja_Menurut_Lapangan_Usaha $data_bekerja_lapangan_usaha): RedirectResponse
     {
-        $Data_Persentase_Bekerja_Menurut_Lapangan_Usaha->delete();
+        $data_bekerja_lapangan_usaha->delete();
         return redirect()->route('dashboard.index')->with('success', 'Data berhasil dihapus.');
     }
 
     // Menampilkan form edit.
-    public function viewUpdate(Data_Persentase_Bekerja_Menurut_Lapangan_Usaha $Data_Persentase_Bekerja_Menurut_Lapangan_Usaha): View
+    public function viewUpdate(Data_Persentase_Bekerja_Menurut_Lapangan_Usaha $data_bekerja_lapangan_usaha): View
     {
-        return view('update.viewUpdate_Data_Persentase_Bekerja_Menurut_Lapangan_Usaha', compact('Data_Persentase_Bekerja_Menurut_Lapangan_Usaha'));
+        return view('update.viewUpdate_Data_Persentase_Bekerja_Menurut_Lapangan_Usaha', compact('data_bekerja_lapangan_usaha'));
     }
 
     // Memperbarui data yang sudah ada.
-    public function update(Request $request, Data_Persentase_Bekerja_Menurut_Lapangan_Usaha $Data_Persentase_Bekerja_Menurut_Lapangan_Usaha): RedirectResponse
+    public function update(Request $request, Data_Persentase_Bekerja_Menurut_Lapangan_Usaha $data_bekerja_lapangan_usaha): RedirectResponse
     {
         $request->validate([
             'Tahun' => 'required|integer',
             'Pertanian_Perkebunan_Kehutanan_Perburuan_dan_Perikanan' => 'required|numeric',
             'Pertambangan_dan_Penggalian' => 'required|numeric',
             'Industri' => 'required|numeric',
-            'Listrik_Gas_dan_Air_Minim' => 'required|numeric',
+            'Listrik_Gas_dan_Air_Minum' => 'required|numeric',
             'Konstruksi' => 'required|numeric',
             'Perdagangan_Rumah_Makan_dan_Jasa_Akomodasi' => 'required|numeric',
             'Transportasi_Pergudangan_dan_Komunikasi' => 'required|numeric',
@@ -62,7 +62,7 @@ class DataPersentaseBekerjaMenurutLapanganUsahaController extends Controller
             'Jumlah' => 'required|numeric',
         ]);
 
-        $Data_Persentase_Bekerja_Menurut_Lapangan_Usaha->update($request->all());
+        $data_bekerja_lapangan_usaha->update($request->all());
 
         return redirect()->route('dashboard.index')->with('success', 'Data berhasil diperbarui.');
     }

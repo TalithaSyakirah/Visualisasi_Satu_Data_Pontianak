@@ -16,7 +16,7 @@ class DataPertumbuhanNilaiTambahKategoriKotaPontianakController extends Controll
         $request->validate([
             'Tahun' => 'required|integer|unique:data__pertumbuhan__nilai__tambah__kategori__kota__pontianaks,Tahun',
             'Pertanian_Kehutanan_dan_Perikanan' => 'required|numeric',
-            'pertambangan_dan_Penggalian' => 'required|numeric',
+            'Pertambangan_dan_Penggalian' => 'required|numeric',
             'Industri_Pengolahan' => 'required|numeric',
             'Pengadaan_Listrik_dan_Gas' => 'required|numeric',
             'Pengadaan_Air_Pengelolaan_Sampah_Limbah_dan_Daur_Ulang' => 'required|numeric',
@@ -41,25 +41,25 @@ class DataPertumbuhanNilaiTambahKategoriKotaPontianakController extends Controll
     }
 
     // Menghapus data.
-    public function destroy(Data_Pertumbuhan_Nilai_Tambah_Kategori_Kota_Pontianak $Data_Pertumbuhan_Nilai_Tambah_Kategori_Kota_Pontianak): RedirectResponse
+    public function destroy(Data_Pertumbuhan_Nilai_Tambah_Kategori_Kota_Pontianak $data_nilai_tambah_kategori): RedirectResponse
     {
-        $Data_Pertumbuhan_Nilai_Tambah_Kategori_Kota_Pontianak->delete();
+        $data_nilai_tambah_kategori->delete();
         return redirect()->route('dashboard.index')->with('success', 'Data berhasil dihapus.');
     }
 
     // Menampilkan form edit.
-    public function viewUpdate(Data_Pertumbuhan_Nilai_Tambah_Kategori_Kota_Pontianak $Data_Pertumbuhan_Nilai_Tambah_Kategori_Kota_Pontianak): View
+    public function viewUpdate(Data_Pertumbuhan_Nilai_Tambah_Kategori_Kota_Pontianak $data_nilai_tambah_kategori): View
     {
-        return view('update.viewUpdate_Data_Pertumbuhan_Nilai_Tambah_Kategori_Kota_Pontianak', compact('Data_Pertumbuhan_Nilai_Tambah_Kategori_Kota_Pontianak'));
+        return view('update.viewUpdate_Data_Pertumbuhan_Nilai_Tambah_Kategori_Kota_Pontianak', compact('data_nilai_tambah_kategori'));
     }
 
     // Memperbarui data yang sudah ada.
-    public function update(Request $request, Data_Pertumbuhan_Nilai_Tambah_Kategori_Kota_Pontianak $Data_Pertumbuhan_Nilai_Tambah_Kategori_Kota_Pontianak): RedirectResponse
+    public function update(Request $request, Data_Pertumbuhan_Nilai_Tambah_Kategori_Kota_Pontianak $data_nilai_tambah_kategori): RedirectResponse
     {
         $request->validate([
-            'Tahun' => 'required|integer|unique:data__pertumbuhan__nilai__tambah__kategori__kota__pontianaks,Tahun,' . $Data_Pertumbuhan_Nilai_Tambah_Kategori_Kota_Pontianak->id,
+            'Tahun' => 'required|integer|unique:data__pertumbuhan__nilai__tambah__kategori__kota__pontianaks,Tahun,' . $data_nilai_tambah_kategori->id,
             'Pertanian_Kehutanan_dan_Perikanan' => 'required|numeric',
-            'pertambangan_dan_Penggalian' => 'required|numeric',
+            'Pertambangan_dan_Penggalian' => 'required|numeric',
             'Industri_Pengolahan' => 'required|numeric',
             'Pengadaan_Listrik_dan_Gas' => 'required|numeric',
             'Pengadaan_Air_Pengelolaan_Sampah_Limbah_dan_Daur_Ulang' => 'required|numeric',
@@ -78,7 +78,7 @@ class DataPertumbuhanNilaiTambahKategoriKotaPontianakController extends Controll
             'Jumlah' => 'required|numeric',
         ]);
 
-        $Data_Pertumbuhan_Nilai_Tambah_Kategori_Kota_Pontianak->update($request->all());
+        $data_nilai_tambah_kategori->update($request->all());
 
         return redirect()->route('dashboard.index')->with('success', 'Data berhasil diperbarui.');
     }

@@ -5,9 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Data_IPM_Menurut_Kabupaten_Kota_di_Kalimantan_Barat extends Model
+class Data_IPM_Menurut_Kabupaten_Kota_Di_Kalimantan_Barat extends Model
 {
     use HasFactory;
+
+    // WAJIB: Tentukan nama tabel secara eksplisit agar sesuai dengan migration
+    protected $table = 'data__ipm__menurut__kabupaten__kota_di__kalimantan__barats';
 
     protected $fillable = [
         'Tahun',

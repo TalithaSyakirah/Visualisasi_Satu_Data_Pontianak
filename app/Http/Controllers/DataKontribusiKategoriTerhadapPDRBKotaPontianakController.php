@@ -16,7 +16,7 @@ class DataKontribusiKategoriTerhadapPDRBKotaPontianakController extends Controll
         $request->validate([
             'Tahun' => 'required|integer|unique:data__kontribusi__kategori__terhadap__p_d_r_b__kota__pontianaks,Tahun',
             'Pertanian_Kehutanan_dan_Perikanan' => 'required|numeric',
-            'pertambangan_dan_Penggalian' => 'required|numeric',
+            'Pertambangan_dan_Penggalian' => 'required|numeric',
             'Industri_Pengolahan' => 'required|numeric',
             'Pengadaan_Listrik_dan_Gas' => 'required|numeric',
             'Pengadaan_Air_Pengelolaan_Sampah_Limbah_dan_Daur_Ulang' => 'required|numeric',
@@ -41,25 +41,25 @@ class DataKontribusiKategoriTerhadapPDRBKotaPontianakController extends Controll
     }
 
     // Menghapus data.
-    public function destroy(Data_Kontribusi_Kategori_Terhadap_PDRB_Kota_Pontianak $Data_Kontribusi_Kategori_Terhadap_PDRB_Kota_Pontianak): RedirectResponse
+    public function destroy(Data_Kontribusi_Kategori_Terhadap_PDRB_Kota_Pontianak $data_kontribusi_kategori): RedirectResponse
     {
-        $Data_Kontribusi_Kategori_Terhadap_PDRB_Kota_Pontianak->delete();
+        $data_kontribusi_kategori->delete();
         return redirect()->route('dashboard.index')->with('success', 'Data berhasil dihapus.');
     }
 
     // Menampilkan form edit.
-    public function viewUpdate(Data_Kontribusi_Kategori_Terhadap_PDRB_Kota_Pontianak $Data_Kontribusi_Kategori_Terhadap_PDRB_Kota_Pontianak): View
+    public function viewUpdate(Data_Kontribusi_Kategori_Terhadap_PDRB_Kota_Pontianak $data_kontribusi_kategori): View
     {
-        return view('update.viewUpdate_Data_Kontribusi_Kategori_Terhadap_PDRB_Kota_Pontianak', compact('Data_Kontribusi_Kategori_Terhadap_PDRB_Kota_Pontianak'));
+        return view('update.viewUpdate_Data_Kontribusi_Kategori_Terhadap_PDRB_Kota_Pontianak', compact('data_kontribusi_kategori'));
     }
 
     // Memperbarui data yang sudah ada.
-    public function update(Request $request, Data_Kontribusi_Kategori_Terhadap_PDRB_Kota_Pontianak $Data_Kontribusi_Kategori_Terhadap_PDRB_Kota_Pontianak): RedirectResponse
+    public function update(Request $request, Data_Kontribusi_Kategori_Terhadap_PDRB_Kota_Pontianak $data_kontribusi_kategori): RedirectResponse
     {
         $request->validate([
-            'Tahun' => 'required|integer|unique:data__kontribusi__kategori__terhadap__p_d_r_b__kota__pontianaks,Tahun,' . $Data_Kontribusi_Kategori_Terhadap_PDRB_Kota_Pontianak->id,
+            'Tahun' => 'required|integer|unique:data__kontribusi__kategori__terhadap__p_d_r_b__kota__pontianaks,Tahun,' . $data_kontribusi_kategori->id,
             'Pertanian_Kehutanan_dan_Perikanan' => 'required|numeric',
-            'pertambangan_dan_Penggalian' => 'required|numeric',
+            'Pertambangan_dan_Penggalian' => 'required|numeric',
             'Industri_Pengolahan' => 'required|numeric',
             'Pengadaan_Listrik_dan_Gas' => 'required|numeric',
             'Pengadaan_Air_Pengelolaan_Sampah_Limbah_dan_Daur_Ulang' => 'required|numeric',
@@ -78,7 +78,7 @@ class DataKontribusiKategoriTerhadapPDRBKotaPontianakController extends Controll
             'Jumlah' => 'required|numeric',
         ]);
 
-        $Data_Kontribusi_Kategori_Terhadap_PDRB_Kota_Pontianak->update($request->all());
+        $data_kontribusi_kategori->update($request->all());
 
         return redirect()->route('dashboard.index')->with('success', 'Data berhasil diperbarui.');
     }

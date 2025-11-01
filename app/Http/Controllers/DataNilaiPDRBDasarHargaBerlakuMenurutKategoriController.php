@@ -16,7 +16,7 @@ class DataNilaiPDRBDasarHargaBerlakuMenurutKategoriController extends Controller
         $request->validate([
             'Tahun' => 'required|integer|unique:data__nilai__p_d_r_b__dasar__harga__berlaku__menurut__kategoris,Tahun',
             'Pertanian_Kehutanan_dan_Perikanan' => 'required|numeric',
-            'pertambangan_dan_Penggalian' => 'required|numeric',
+            'Pertambangan_dan_Penggalian' => 'required|numeric',
             'Industri_Pengolahan' => 'required|numeric',
             'Pengadaan_Listrik_dan_Gas' => 'required|numeric',
             'Pengadaan_Air_Pengelolaan_Sampah_Limbah_dan_Daur_Ulang' => 'required|numeric',
@@ -41,25 +41,25 @@ class DataNilaiPDRBDasarHargaBerlakuMenurutKategoriController extends Controller
     }
 
     // Menghapus data.
-    public function destroy(Data_Nilai_PDRB_Dasar_Harga_Berlaku_Menurut_Kategori $Data_Nilai_PDRB_Dasar_Harga_Berlaku_Menurut_Kategori): RedirectResponse
+    public function destroy(Data_Nilai_PDRB_Dasar_Harga_Berlaku_Menurut_Kategori $data_pdrb_dasar_harga_berlaku): RedirectResponse
     {
-        $Data_Nilai_PDRB_Dasar_Harga_Berlaku_Menurut_Kategori->delete();
+        $data_pdrb_dasar_harga_berlaku->delete();
         return redirect()->route('dashboard.index')->with('success', 'Data berhasil dihapus.');
     }
 
     // Menampilkan form edit.
-    public function viewUpdate(Data_Nilai_PDRB_Dasar_Harga_Berlaku_Menurut_Kategori $Data_Nilai_PDRB_Dasar_Harga_Berlaku_Menurut_Kategori): View
+    public function viewUpdate(Data_Nilai_PDRB_Dasar_Harga_Berlaku_Menurut_Kategori $data_pdrb_dasar_harga_berlaku): View
     {
-        return view('update.viewUpdate_Data_Nilai_PDRB_Dasar_Harga_Berlaku_Menurut_Kategori', compact('Data_Nilai_PDRB_Dasar_Harga_Berlaku_Menurut_Kategori'));
+        return view('update.viewUpdate_Data_Nilai_PDRB_Dasar_Harga_Berlaku_Menurut_Kategori', compact('data_pdrb_dasar_harga_berlaku'));
     }
 
     // Memperbarui data yang sudah ada.
-    public function update(Request $request, Data_Nilai_PDRB_Dasar_Harga_Berlaku_Menurut_Kategori $Data_Nilai_PDRB_Dasar_Harga_Berlaku_Menurut_Kategori): RedirectResponse
+    public function update(Request $request, Data_Nilai_PDRB_Dasar_Harga_Berlaku_Menurut_Kategori $data_pdrb_dasar_harga_berlaku): RedirectResponse
     {
         $request->validate([
-            'Tahun' => 'required|integer|unique:data__nilai__p_d_r_b__dasar__harga__berlaku__menurut__kategoris,Tahun,' . $Data_Nilai_PDRB_Dasar_Harga_Berlaku_Menurut_Kategori->id,
+            'Tahun' => 'required|integer|unique:data__nilai__p_d_r_b__dasar__harga__berlaku__menurut__kategoris,Tahun,' . $data_pdrb_dasar_harga_berlaku->id,
             'Pertanian_Kehutanan_dan_Perikanan' => 'required|numeric',
-            'pertambangan_dan_Penggalian' => 'required|numeric',
+            'Pertambangan_dan_Penggalian' => 'required|numeric',
             'Industri_Pengolahan' => 'required|numeric',
             'Pengadaan_Listrik_dan_Gas' => 'required|numeric',
             'Pengadaan_Air_Pengelolaan_Sampah_Limbah_dan_Daur_Ulang' => 'required|numeric',
@@ -78,7 +78,7 @@ class DataNilaiPDRBDasarHargaBerlakuMenurutKategoriController extends Controller
             'Jumlah' => 'required|numeric',
         ]);
 
-        $Data_Nilai_PDRB_Dasar_Harga_Berlaku_Menurut_Kategori->update($request->all());
+        $data_pdrb_dasar_harga_berlaku->update($request->all());
 
         return redirect()->route('dashboard.index')->with('success', 'Data berhasil diperbarui.');
     }
