@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +11,16 @@
     body {
       background-color: #f8f9fa;
     }
+
+    h2 {
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: 0.5px;
+    }
+
+    .table th {
+      font-weight: 600;
+    }
+
 
     .container-custom {
       width: 90%;
@@ -54,4 +63,5 @@
     @yield('content')
   </div>
 </body>
+
 </html>
