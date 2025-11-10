@@ -215,3 +215,10 @@ Route::get('/datatingkatinflasikotapontianak/{data_tingkat_inflasi}/viewUpdate',
 
 // simpan update
 Route::put('/datatingkatinflasikotapontianak/{data_tingkat_inflasi}', [DataTingkatInflasiKotaPontianakController::class, 'update'])->name('data_tingkat_inflasi_kota_pontianak.update');
+
+// Data Vidualisasi
+
+use App\Http\Controllers\visualisasiController;
+
+// Get Visual
+Route::get('/visualisasi', [visualisasiController::class, 'index'])->name('visualisasi');

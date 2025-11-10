@@ -75,7 +75,6 @@ class MainController extends Controller
 
         // Mengirim semua data ke view 'index'
         return view('index', compact(
-            // PERBAIKAN: Menghapus huruf 's' di akhir setiap string compact
             'DataLuasWilayahPerKecamatan',
             'DataJumlahPendudukKotaPontianak',
             'DataJumlahPersentasePendudukMiskindiKotaPontianak',
